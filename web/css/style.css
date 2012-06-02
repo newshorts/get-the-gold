@@ -1,0 +1,97 @@
+/* 
+    Document   : style
+    Created on : Jun 2, 2012, 1:50:47 AM
+    Author     : newe1344
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+root { 
+    display: block;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+#gold {
+    height: 76px;
+    width: 100%;
+    position: fixed;
+    margin: 0;
+    padding: 0;
+    display: block;
+    
+    -moz-box-shadow:    3px 3px 3px 3px #ccc;
+    -webkit-box-shadow: 3px 3px 3px 3px #ccc;
+    box-shadow:         3px 3px 3px 3px #ccc;
+}
+
+#gold-wrap {
+    height: 76px;
+    width: 100%;
+    position: relative;
+    background: url(../images/top-bar-repeat.png) scroll repeat-x;
+}
+
+#gold-bar {
+    height: 76px;
+    width: 975px;
+    position: relative;
+    top: 0;
+    left: 0;
+    background: url(../images/top-bar.png) scroll no-repeat;
+}
+
+#gold-mario {
+    position: absolute;
+    top: 9px;
+    left: 37px;
+    width: 70px;
+    height: 80px;
+    background: url(../images/mario-head.png) scroll no-repeat;
+}
+
+#gold-toggle-wrap {
+    position: relative;
+    top: 28px;
+    left: 120px;
+    width: 111px;
+}
+
+#gold-toggle {
+    display: block;
+    width: 64px;
+    height: 34px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: url(../images/toggle-bg.png) scroll no-repeat;
+}
+
+#gold-toggle-button {
+    display: block;
+    width: 35px;
+    height: 35px;
+    position: absolute;
+    top: 0;
+    left: 31px;
+    background: url(../images/toggle-button.png) scroll no-repeat;
+}
+
+#gold-score {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 63px;
+    padding-top: 13px;
+}
+
+#gold-score-coin {
+/*    
+    width: 53px;
+    height: 56px;*/
+/*    background: url(../images/coin-sprite.png) 0 0 scroll no-repeat;*/
+}

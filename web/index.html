@@ -7,30 +7,65 @@ and open the template in the editor.
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"></meta>
         <title>Test</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css" />
         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+        <script type="text/javascript" src="js/easeljs-0.4.2.min.js"></script>
+        <script>
+            function init() {
+                var stage = new Stage(document.getElementById('gold-score-coin'));
+                
+                var ss = new SpriteSheet({
+                    'frames': {
+                        'width': 53,
+                        'numFrames': 6,
+                        'regX': 0,
+                        'regY': 0,
+                        'height': 56
+                    },
+                    'animations': {
+                        'spin': [0, 5]
+                    },
+                    'images': ['images/coin-sprite.png']
+                });
+                
+                var coin = new BitmapAnimation(ss);
+                coin.x = 0;
+                coin.y = 1;
+                
+                ss.getAnimation('spin').frequency = 10;
+                ss.getAnimation('spin').next = 'spin';
+                coin.gotoAndPlay('spin');
+                
+                stage.addChild(coin);
+                Ticker.setFPS(60);
+                Ticker.addListener(stage);
+                
+                console.dir(stage)
+            }
+        </script>
+        <script>
+            (function($) {
+                $(window).load(function() {
+                    init();
+                });
+            })(jQuery);
+        </script>
     </head>
     <body>
-        <div id="wrap">
-            <header>
-                <div id="gold-spacer"></div>
-                <div id="gold-wrap">
-                    <div id="gold-bar">
-                        <div id="gold-mario"></div>
-                        <div id="gold-toggle-wrap">
-                            <a id="gold-toggle" href="">
-                                <span id="gold-button"></span>
-                            </a>
-                        </div>
-                        <div id="gold-score"></div>
+        <div id="gold">
+            <div id="gold-wrap">
+                <div id="gold-bar">
+                    <div id="gold-mario"></div>
+                    <div id="gold-toggle-wrap">
+                        <a id="gold-toggle" href="">
+                            <span id="gold-toggle-button"></span>
+                        </a>
                     </div>
                 </div>
-            </header>
-            <section>
-                
-            </section>
-            <footer>
-                
-            </footer>
+                <div id="gold-score">
+                    <canvas id="gold-score-coin" width="53" height="56"></canvas>
+                </div>
+            </div>
         </div>
     </body>
 </html>
