@@ -7,16 +7,22 @@
 
 var counter = function() {
     var soup = $('.soup'),
-        balance;
+        balance = 0;
         
     this.addCoins = function(count) {
-        balance += count;
+        
+        count = count || 0;
+        
+        balance = balance + count;
+        
+        
+        
         var s = formatBalance(balance);
         
         soup.text(s);
     }
     
-    var formatBalance = function() {
+    var formatBalance = function(x) {
         return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
     }
     
@@ -28,14 +34,14 @@ var headerCoin = function() {
 
         var ss = new SpriteSheet({
             'frames': {
-                'width': 56,
-                'numFrames': 8,
+                'width': 56.333333,
+                'numFrames': 6,
                 'regX': 0,
                 'regY': 0,
                 'height': 56
             },
             'animations': {
-                'spin': [0, 6]
+                'spin': [0, 5]
             },
             'images': ['images/coin-sprite.png']
         });
@@ -63,11 +69,16 @@ var mouseCoins = function() {
         bmpAnim,
         fpsLabel,
         ss,
-        c;
+        c,
+        aud;
 
     this.init = function() {
         
         c = new counter();
+        
+        aud = document.getElementById('gold-audio');
+//        a.setAttribute('src', 'audio/mario-coin.mp3'); 
+        aud.load();
         
         canvas = document.getElementById('gold-mouse');
         stage = new Stage(canvas);
@@ -77,14 +88,14 @@ var mouseCoins = function() {
 
         var data = {
             'frames': {
-                'width': 56,
+                'width': 56.3333,
                 'height': 56,
                 'regX': 0,
                 'regY': 0,
-                'numFrames': 8
+                'numFrames': 6
             },
             'animations': {
-                'spinners': [0,6]
+                'spinners': [0,5]
             },
             'images': ['images/coin-sprite.png']
         };
@@ -133,20 +144,28 @@ var mouseCoins = function() {
     }
 
     var clickCanvas = function(evt) {
-        addSparkles(Math.random()*15+5|0, stage.mouseX, stage.mouseY, 2);
-
+        var count = Math.random()*15+5|0
+        addSparkles(count, stage.mouseX, stage.mouseY, 2);
+        
+        c.addCoins(parseInt(count));
     }
 
     var moveCanvas = function(evt) {
         var per = Math.floor(Math.random()*100 + 1);
         if(per > 85) {
-            addSparkles(Math.random()*1+1|0, stage.mouseX, stage.mouseY, 1);
+            var count = Math.random()*1+1|0
+            addSparkles(count, stage.mouseX, stage.mouseY, 1);
         }
+//        console.debug(count);
+        c.addCoins(count);
     }
 
     var addSparkles = function(count, x, y, speed) {
+        
+        aud.cloneNode(true).play();
 
         for(var i = 0; i < count; i++) {
+            
             var sparkle = bmpAnim.clone();
 
             sparkle.x = x;
