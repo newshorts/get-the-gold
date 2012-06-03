@@ -137,7 +137,7 @@ var headerCoin = function() {
             'animations': {
                 'spin': [0, 5]
             },
-            'images': ['images/coin-sprite.png']
+            'images': ['https://s3.amazonaws.com/newe1344-gsp/nintendo/images/coin-sprite.png']
         });
 
         var coin = new BitmapAnimation(ss);
@@ -191,7 +191,7 @@ var mouseCoins = function() {
             'animations': {
                 'spinners': [0,5]
             },
-            'images': ['images/coin-sprite.png']
+            'images': ['https://s3.amazonaws.com/newe1344-gsp/nintendo/images/coin-sprite.png']
         };
         
         ss = new SpriteSheet(data);
@@ -293,18 +293,22 @@ var toggle = function() {
         text = $('#gold-toggle-text'),
         winWidth,
         winHeight,
-        win;
+        docHeight,
+        win,
+        doc;
         
     this.init = function() {
         
         win = $(window);
+        doc = $(document);
         
         anchor.on('click', function(evt) {
             
             evt.preventDefault();
             
             winWidth = win.width();
-            winHeight = win.height();
+//            winHeight = win.height();
+            docHeight = doc.height();
             
             adjustOnOff();
             adjustSize();
@@ -312,7 +316,14 @@ var toggle = function() {
         
         win.on('resize', function(evt) {
             winWidth = win.width();
-            winHeight = win.height();
+//            winHeight = win.height();
+            docHeight = doc.height();
+            adjustSize();
+        });
+        
+        win.on('scroll', function(evt) {
+            winWidth = win.width();
+            docHeight = doc.height();
             adjustSize();
         });
         
@@ -336,7 +347,7 @@ var toggle = function() {
             $('#gold-mouse').attr('height', 0);
             $('#gold-mouse').attr('width', '100%');
         } else {
-            $('#gold-mouse').attr('height', winHeight - 76);
+            $('#gold-mouse').attr('height', docHeight - 76);
             $('#gold-mouse').attr('width', winWidth);
         }
     }
@@ -368,8 +379,8 @@ var toggle = function() {
     pre +=      '</div>';
     pre +=  '</div>';
     pre +=  '<audio id="gold-audio" controls="controls">';
-    pre +=      '<source src="audio/mario-coin.ogv" type="audio/ogg" />';
-    pre +=      '<source src="audio/mario-coin.mp3" type="audio/mpeg" />';
+    pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/audio/mario-coin.ogv" type="audio/ogg" />';
+    pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/audio/mario-coin.mp3" type="audio/mpeg" />';
     pre +=      'Your browser does not support the audio element.';
     pre +=  '</audio> ';
 
@@ -377,10 +388,11 @@ var toggle = function() {
     app +=      '<canvas id="gold-mouse" width="960" height="400"></canvas>';
     app +=  '</div>';
     
-    
-    $('body').prepend(pre);
-    $('body').append(app);
     $('head').append(css);
+    $('body').prepend(app);
+    $('body').prepend(pre);
+    
+    
 
     var gm = $('#gold-mouse');
 
