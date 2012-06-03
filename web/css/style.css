@@ -6,6 +6,11 @@
         Purpose of the stylesheet follows.
 */
 
+@font-face {
+    font-family: 'Soup of Justice';
+    src: url('soupofjustice.ttf');
+}
+
 root { 
     display: block;
 }
@@ -33,6 +38,7 @@ body {
     width: 100%;
     position: relative;
     background: url(../images/top-bar-repeat.png) scroll repeat-x;
+    z-index: 9999999;
 }
 
 #gold-bar {
@@ -47,14 +53,14 @@ body {
 #gold-mario {
     position: absolute;
     top: 9px;
-    left: 37px;
+    left: 20px;
     width: 70px;
     height: 80px;
     background: url(../images/mario-head.png) scroll no-repeat;
 }
 
 #gold-toggle-wrap {
-    position: relative;
+    position: absolute;
     top: 28px;
     left: 120px;
     width: 111px;
@@ -78,33 +84,156 @@ body {
     top: 0;
     left: 31px;
     background: url(../images/toggle-button.png) scroll no-repeat;
+    
+    -webkit-transition: left .1s; 
+    -moz-transition: left .1s; 
+    -o-transition: left .1s; 
+    transition: left .1s;
 }
 
-#gold-score {
-    position: absolute;
-    top: 0;
-    right: 0;
-    width: 300px;
-    height: 63px;
-    padding-top: 13px;
+.on #gold-toggle-button {
+    left: 31px;
 }
 
-#gold-score-coin {
-/*    
-    width: 53px;
-    height: 56px;*/
-/*    background: url(../images/coin-sprite.png) 0 0 scroll no-repeat;*/
+.off #gold-toggle-button {
+    left: 0px;
 }
+
+
+
 
 /*
     MOUSE STYLES
 */
 
+#gold-mouse {
+    
+}
+
 #gold-mouse-wrap {
-    width: 100%;
-    height: 100%;
+/*    width: 100%;
+    height: 100%;*/
     display: block;
     position: relative;
     top: 76px;
     left: 0;
+    z-index: 9999998;
+}
+
+/*
+    COUNTER STYLES
+*/
+
+#gold-score {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    width: 74%;
+    height: 63px;
+    padding-top: 13px;
+}
+
+#gold-score-coin {
+    float: left;
+    position: relative;
+    left: -18px;
+}
+
+
+#gold-score-text {
+    position: absolute;
+    top: 14px;
+    right: 0px;
+    height: 76px;
+}
+
+.soup {
+    font-family: 'Soup of Justice';
+    font-size: 47.5px;
+    color: white;
+    line-height: 58px;
+    text-shadow: 2px 2px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 3px 4px 0px #000;
+}
+
+/*.score {
+    height: 60px;
+    background: url(../images/counter-sprite.png) 0 0 scroll no-repeat;
+    display: block;
+    float: left;
+}*/
+
+/*.zero {
+    width: 61px;
+    background-position: -478px 0;
+}
+
+.one {
+    width: 39px;
+
+    background-position: 0px 0;
+}
+
+.two {
+    width: 50px;
+
+    background-position: -42px 0;
+}
+
+.three {
+    width: 54px;
+
+    background-position: -94px 0;
+}
+
+.four {
+    width: 50px;
+
+    background-position: -151px 0;
+}
+
+.five {
+    width: 50px;
+
+    background-position: -205px 0;
+}
+
+.six {
+    width: 55px;
+
+    background-position: -260px 0;
+}
+
+.seven {
+    width: 50px;
+
+    background-position: -318px 0;
+}
+
+.eight {
+    width: 50px;
+
+    background-position: -369px 0;
+}
+
+.nine {
+    width: 50px;
+
+    background-position: -423px 0;
+}
+
+.comma {
+    width: 26px;
+
+    background-position: -539px 0;
+}
+
+.x {
+    margin-left: -6px;
+    width: 50px;
+
+    background-position: -567px;
+}*/
+
+small {
+    vertical-align: middle;
 }
