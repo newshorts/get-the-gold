@@ -135,7 +135,7 @@ var headerCoin = function() {
             'animations': {
                 'spin': [0, 5]
             },
-            'images': ['https://s3.amazonaws.com/newe1344-gsp/nintendo/images/coin-sprite.png']
+            'images': ['https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/images/coin-sprite.png']
         });
 
         var coin = new BitmapAnimation(ss);
@@ -189,7 +189,7 @@ var mouseCoins = function() {
             'animations': {
                 'spinners': [0,5]
             },
-            'images': ['https://s3.amazonaws.com/newe1344-gsp/nintendo/images/coin-sprite.png']
+            'images': ['https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/images/coin-sprite.png']
         };
         
         ss = new SpriteSheet(data);
@@ -358,78 +358,78 @@ var toggle = function() {
     }
 }
 
-    console.debug(window.GETTHEGOLDVERSION);
-    if(window.GETTHEGOLDVERSION == 'unstarted') {
-        var pre,
-            app,
-            css;
+console.debug(window.GTG);
+if(window.GTG == 'u') {
+    var pre,
+        app,
+        css;
 
 
-        //s3.amazonaws.com/newe1344-gsp/nintendo/css/style.css
-        //localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css
-        css = '<link rel="stylesheet" type="text/css" href="//localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css" />';
+    //s3.amazonaws.com/newe1344-gsp/nintendo/css/style.css
+    //localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css
+    css = '<link rel="stylesheet" type="text/css" href="//localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css" />';
 
-        pre =   '<div id="gold" class="hidden">';
-        pre +=      '<div id="gold-wrap">';
-        pre +=          '<div id="gold-bar"></div>';
-        pre +=          '<div id="gold-score">';
-        pre +=              '<div id="gold-score-text">';
-        pre +=                  '<canvas id="gold-score-coin" width="56" height="58"></canvas>';
-        pre +=                  '<span class="soup x"> x </span>';
-        pre +=                  '<span id="gold-count" class="soup">99,999,999</span>';
-        pre +=              '</div>';
-        pre +=          '</div>';
-        pre +=          '<div id="gold-mario"></div>';
-        pre +=          '<div id="gold-toggle-wrap">';
-        pre +=              '<a id="gold-toggle" href="javascript:void(0);">';
-        pre +=                  '<span id="gold-toggle-button" class="off"></span>';
-        pre +=              '</a>';
-        pre +=              '<span id="gold-toggle-text" class="on">ON</span>';
-        pre +=          '</div>';
-        pre +=      '</div>';
-        pre +=  '</div>';
-        pre +=  '<audio style="display: none;" id="gold-audio" controls="controls">';
-        pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/audio/mario-coin.ogv" type="audio/ogg" />';
-        pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/audio/mario-coin.mp3" type="audio/mpeg" />';
-        pre +=      'Your browser does not support the audio element.';
-        pre +=  '</audio> ';
+    pre =   '<div id="gold" class="hidden">';
+    pre +=      '<div id="gold-wrap">';
+    pre +=          '<div id="gold-bar"></div>';
+    pre +=          '<div id="gold-score">';
+    pre +=              '<div id="gold-score-text">';
+    pre +=                  '<canvas id="gold-score-coin" width="56" height="58"></canvas>';
+    pre +=                  '<span class="soup x"> x </span>';
+    pre +=                  '<span id="gold-count" class="soup">99,999,999</span>';
+    pre +=              '</div>';
+    pre +=          '</div>';
+    pre +=          '<div id="gold-mario"></div>';
+    pre +=          '<div id="gold-toggle-wrap">';
+    pre +=              '<a id="gold-toggle" href="javascript:void(0);">';
+    pre +=                  '<span id="gold-toggle-button" class="off"></span>';
+    pre +=              '</a>';
+    pre +=              '<span id="gold-toggle-text" class="on">ON</span>';
+    pre +=          '</div>';
+    pre +=      '</div>';
+    pre +=  '</div>';
+    pre +=  '<audio style="display: none;" id="gold-audio" controls="controls">';
+    pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/audio/mario-coin.ogv" type="audio/ogg" />';
+    pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/audio/mario-coin.mp3" type="audio/mpeg" />';
+    pre +=      'Your browser does not support the audio element.';
+    pre +=  '</audio> ';
 
-        app =   '<div id="gold-mouse-wrap">';
-        app +=      '<img id="gold-box1" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/images/gold-box2.png" />';
-        app +=      '<img id="gold-box2" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/images/gold-box1.png" />';
-        app +=      '<img id="gold-fire" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/images/gold-shroom.png" />';
-        app +=      '<img id="gold-shroom" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/images/gold-fire.png" />';
-        app +=      '<canvas id="gold-mouse" width="960" height="400"></canvas>';
-        app +=  '</div>';
+    app =   '<div id="gold-mouse-wrap">';
+    app +=      '<img id="gold-box1" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/images/gold-box2.png" />';
+    app +=      '<img id="gold-box2" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/images/gold-box1.png" />';
+    app +=      '<img id="gold-fire" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/images/gold-shroom.png" />';
+    app +=      '<img id="gold-shroom" class="gold-box-image" src="https://s3.amazonaws.com/newe1344-gsp/nintendo/boxes/images/gold-fire.png" />';
+    app +=      '<canvas id="gold-mouse" width="960" height="400"></canvas>';
+    app +=  '</div>';
 
-        $('head').append(css);
-        $('body').prepend(app);
-        $('body').prepend(pre);
+    $('head').append(css);
+    $('body').prepend(app);
+    $('body').prepend(pre);
 
-        var gm = $('#gold-mouse');
+    var gm = $('#gold-mouse');
 
-        var w = $(this).width(),
-            h = $(this).height();
+    var w = $(this).width(),
+        h = $(this).height();
 
-        gm.attr('width', w);
-        gm.attr('height', h);
+    gm.attr('width', w);
+    gm.attr('height', h);
 
-        var mc = new mouseCoins();
-        mc.init();
+    var mc = new mouseCoins();
+    mc.init();
 
-        var hc = new headerCoin();
-        hc.init();
+    var hc = new headerCoin();
+    hc.init();
 
-        var t = new toggle();
-        t.init();
+    var t = new toggle();
+    t.init();
 
-        setTimeout(function() {
-            $('#gold').removeClass('hidden').addClass('show');
-            $('#gold-preloader').hide();
-        }, 2000);
-        
-        window.GETTHEGOLDVERSION = 'started';
-    }
+    setTimeout(function() {
+        $('#gold').removeClass('hidden').addClass('show');
+        $('#gold-preloader').hide();
+    }, 2000);
+
+    window.GTG = 's';
+}
 
 
 //$(window).load(function() {
