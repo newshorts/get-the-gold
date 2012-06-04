@@ -87,6 +87,15 @@ body {
     background: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/mario-head.png) scroll no-repeat;
 }
 
+#gold-sign-in {
+    position: absolute;
+    top: 23px;
+    left: 416px;
+    width: 175px;
+    height: 19px;
+    background: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/sign-in.png) scroll no-repeat;
+}
+
 #gold-toggle-wrap {
     position: absolute;
     top: 19px;

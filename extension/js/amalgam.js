@@ -371,6 +371,7 @@ var toggle = function() {
     pre +=              '</div>';
     pre +=          '</div>';
     pre +=          '<div id="gold-mario"></div>';
+    pre +=          '<div id="gold-sign-in"></div>';
     pre +=          '<div id="gold-toggle-wrap">';
     pre +=              '<a id="gold-toggle" href="javascript:void(0);">';
     pre +=                  '<span id="gold-toggle-button" class="off"></span>';
