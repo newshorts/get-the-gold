@@ -412,5 +412,6 @@ var toggle = function() {
 
     setTimeout(function() {
         $('#gold').removeClass('hidden').addClass('show');
+        $('#gold-preloader').hide();
     }, 2000);
 //});
