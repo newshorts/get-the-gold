@@ -234,3 +234,31 @@ body {
 #gold-audio {
     display: none;
 }
+
+/*
+    BOXES
+*/
+
+.gold-box-image {
+    position: absolute;
+}
+
+#gold-box1 {
+    top: 20%;
+    left: 20%;
+}
+
+#gold-box2 {
+    top: 30%;
+    left: 30%;
+}
+
+#gold-shroom {
+    top: 40%;
+    left: 60%;
+}
+
+#gold-fire {
+    top: 80%;
+    left: 50%;
+}
