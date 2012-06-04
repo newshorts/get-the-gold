@@ -1,1 +1,9 @@
-stuff
+To get this working:
+
+Right now the bookmark loads a script from amazon called "amalgam".
+
+To get this working on local, point the script to the local version of "amalgam"
+
+Then inside the local copy, change the stylesheet that gets loaded to a local stylesheet
+
+Once your done, change everything back and upload the changes to s3

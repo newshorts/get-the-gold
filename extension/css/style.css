@@ -1,7 +1,7 @@
 /* 
     Document   : style
     Created on : Jun 2, 2012, 1:50:47 AM
-    Author     : newe1344
+    Author     : Mike Newell
     Description:
         Purpose of the stylesheet follows.
 */
@@ -29,7 +29,7 @@ body {
 }
 
 #gold {
-    height: 76px;
+    height: 73px;
     width: 100%;
     position: fixed;
     margin: 0;
@@ -38,9 +38,9 @@ body {
 /*    top: 0;*/
     left: 0;
     
-    -moz-box-shadow:    3px 3px 3px 3px #ccc;
-    -webkit-box-shadow: 3px 3px 3px 3px #ccc;
-    box-shadow:         3px 3px 3px 3px #ccc;
+/*    -moz-box-shadow:    0px -2px 3px 3px #333;
+    -webkit-box-shadow: 0px -2px 3px 3px #333;
+    box-shadow:         0px -2px 3px 3px #333;*/
 }
 
 #gold.hidden, .hidden #gold-wrap {
@@ -62,7 +62,7 @@ body {
 }
 
 #gold-wrap {
-    height: 76px;
+    height: 74px;
     width: 100%;
     position: relative;
     background: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/top-bar-repeat.png) scroll repeat-x;
@@ -70,27 +70,27 @@ body {
 }
 
 #gold-bar {
-    height: 76px;
+    height: 74px;
     width: 975px;
     position: relative;
     top: 0;
     left: 0;
-    background: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/top-bar.png) scroll no-repeat;
+/*    background: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/top-bar.png) scroll no-repeat;*/
 }
 
 #gold-mario {
     position: absolute;
-    top: 9px;
-    left: 20px;
-    width: 70px;
-    height: 80px;
+    top: 2px;
+    left: 96px;
+    width: 302px;
+    height: 84px;
     background: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/mario-head.png) scroll no-repeat;
 }
 
 #gold-toggle-wrap {
     position: absolute;
-    top: 28px;
-    left: 120px;
+    top: 19px;
+    left: 22px;
     width: 111px;
 }
 
@@ -139,6 +139,10 @@ body {
     font-family: 'CoopLightMedium';
     font-size: 17px;
     color: #000;
+    text-align: left;
+    vertical-align: bottom;
+    margin: 0;
+    padding: 0;
     
     -ms-filter:"progid:DXImageTransform.Microsoft.Alpha(Opacity=50)";
     filter: alpha(opacity=50);
@@ -150,6 +154,7 @@ body {
 #gold-toggle-text.on {
 /*    background: url(../images/ON.png) scroll no-repeat;*/
     right: 71px;
+    
 }
 
 #gold-toggle-text.off {
@@ -172,9 +177,11 @@ body {
     height: 100%;*/
     display: block;
     position: absolute;
-    top: 76px;
+    top: 74px;
     left: 0;
     z-index: 9999998;
+    
+    cursor: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/mario-hand.png), auto;
 }
 
 /*
@@ -199,21 +206,25 @@ body {
 
 #gold-score-text {
     position: absolute;
-    top: 14px;
+    top: 6px;
     right: 0px;
-    height: 76px;
+    height: 74px;
 }
 
 .soup {
     font-family: 'SoupofJusticeSoupofJustice';
-    font-size: 47.5px;
+    font-size: 43.5px;
+    letter-spacing: 5px;
     color: white;
     line-height: 58px;
-    text-shadow: 2px 2px 0px #000, -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 3px 4px 0px #000;
+    text-shadow: 2px 2px 0px rgba(0,0,0,1), -2px -2px 0px #000, 2px -2px 0px #000, -2px 2px 0px #000, 4px 4px 0px rgba(0,0,0,0.4);
 }
 
-small {
+.x {
     vertical-align: middle;
+    font-size: 35.5px;
+    position: relative;
+    top: -9px;
 }
 
 /*

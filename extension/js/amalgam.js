@@ -100,7 +100,7 @@ a._handleTouchMoveListener=null};c._findPrimaryTouch=function(a,b){for(var c=b.l
  **/
 
 var counter = function() {
-    var soup = $('.soup'),
+    var c = $('#gold-count'),
         balance = 0;
         
     this.addCoins = function(count) {
@@ -109,11 +109,9 @@ var counter = function() {
         
         balance = balance + count;
         
-        
-        
         var s = formatBalance(balance);
         
-        soup.text(s);
+        c.text(s);
     }
     
     var formatBalance = function(x) {
@@ -242,11 +240,13 @@ var mouseCoins = function() {
         addSparkles(count, stage.mouseX, stage.mouseY, 2);
         
         c.addCoins(parseInt(count));
+        
+        
     }
 
     var moveCanvas = function(evt) {
         var per = Math.floor(Math.random()*100 + 1);
-        if(per > 85) {
+        if(per > 97) {
             var count = Math.random()*1+1|0
             addSparkles(count, stage.mouseX, stage.mouseY, 1);
         }
@@ -358,7 +358,7 @@ var toggle = function() {
         app,
         css;
         
-    css = '<link rel="stylesheet" type="text/css" href="https://s3.amazonaws.com/newe1344-gsp/nintendo/css/style.css" />';
+    css = '<link rel="stylesheet" type="text/css" href="//s3.amazonaws.com/newe1344-gsp/nintendo/css/style.css" />';
 
     pre =   '<div id="gold" class="hidden">';
     pre +=      '<div id="gold-wrap">';
@@ -366,7 +366,8 @@ var toggle = function() {
     pre +=          '<div id="gold-score">';
     pre +=              '<div id="gold-score-text">';
     pre +=                  '<canvas id="gold-score-coin" width="56" height="58"></canvas>';
-    pre +=                  '<span class="soup"> <small>x</small> 99,999,999</span>';
+    pre +=                  '<span class="soup x"> x </span>';
+    pre +=                  '<span id="gold-count" class="soup">99,999,999</span>';
     pre +=              '</div>';
     pre +=          '</div>';
     pre +=          '<div id="gold-mario"></div>';
@@ -378,7 +379,7 @@ var toggle = function() {
     pre +=          '</div>';
     pre +=      '</div>';
     pre +=  '</div>';
-    pre +=  '<audio id="gold-audio" controls="controls">';
+    pre +=  '<audio style="display: none;" id="gold-audio" controls="controls">';
     pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/audio/mario-coin.ogv" type="audio/ogg" />';
     pre +=      '<source src="https://s3.amazonaws.com/newe1344-gsp/nintendo/audio/mario-coin.mp3" type="audio/mpeg" />';
     pre +=      'Your browser does not support the audio element.';
@@ -392,8 +393,6 @@ var toggle = function() {
     $('body').prepend(app);
     $('body').prepend(pre);
     
-    
-
     var gm = $('#gold-mouse');
 
     var w = $(this).width(),
@@ -413,5 +412,5 @@ var toggle = function() {
 
     setTimeout(function() {
         $('#gold').removeClass('hidden').addClass('show');
-    }, 1000);
+    }, 2000);
 //});
