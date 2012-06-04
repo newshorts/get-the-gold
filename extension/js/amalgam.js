@@ -365,9 +365,9 @@ if(window.GTG == 'u') {
         css;
 
 
-    //s3.amazonaws.com/newe1344-gsp/nintendo/css/style.css
+    //s3.amazonaws.com/newe1344-gsp/nintendo/boxes/css/style.css
     //localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css
-    css = '<link rel="stylesheet" type="text/css" href="//localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css" />';
+    css = '<link rel="stylesheet" type="text/css" href="//s3.amazonaws.com/newe1344-gsp/nintendo/boxes/css/style.css" />';
 
     pre =   '<div id="gold" class="hidden">';
     pre +=      '<div id="gold-wrap">';
