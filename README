@@ -7,3 +7,6 @@ To get this working on local, point the script to the local version of "amalgam"
 Then inside the local copy, change the stylesheet that gets loaded to a local stylesheet
 
 Once your done, change everything back and upload the changes to s3
+
+
+NOTE: June 5th - moved everything to a modular development system so I can push updates live quicker - no more s3
