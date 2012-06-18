@@ -35,12 +35,12 @@ body {
     margin: 0;
     padding: 0;
     display: block;
-/*    top: 0;*/
     left: 0;
+}
+
+#gold-preloader {
     
-/*    -moz-box-shadow:    0px -2px 3px 3px #333;
-    -webkit-box-shadow: 0px -2px 3px 3px #333;
-    box-shadow:         0px -2px 3px 3px #333;*/
+    
 }
 
 #gold.hidden, .hidden #gold-wrap {
@@ -242,4 +242,78 @@ body {
 
 #gold-audio {
     display: none;
+}
+
+/*
+    DEMO SCENE
+*/
+
+
+.coin-large1 { top: 733px; left: 402px; }
+.coin-large2 { top: 733px; left: 474px; }
+.coin-large3 { top: 733px; left: 548px; }
+.coin-large4 { top: 733px; left: 620px; }
+
+.coin-large {
+    width: 72px;
+    height: 87px;
+    background: url(http://newe1344-gsp.s3.amazonaws.com/nintendo/images/coin-large.png) 0 0 scroll no-repeat;
+    cursor: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/mario-hand.png), auto;
+    
+    position: absolute;
+    z-index: 9999999;
+}
+
+.coin-small1 { top: 93px; left: 302px; }
+.coin-small2 { top: 93px; left: 343px; }
+.coin-small3 { top: 93px; left: 384px; }
+.coin-small4 { top: 93px; left: 425px; }
+.coin-small5 { top: 93px; left: 466px; }
+.coin-small6 { top: 93px; left: 507px; }
+.coin-small7 { top: 93px; left: 548px; }
+.coin-small8 { top: 93px; left: 589px; }
+
+.coin-small {
+    width: 41px;
+    height: 49px;
+    background: url(http://newe1344-gsp.s3.amazonaws.com/nintendo/images/coin-small.png) 0 0 scroll no-repeat;
+    cursor: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/mario-hand.png), auto;
+    
+    position: absolute;
+    z-index: 9999999;
+}
+
+.hidden-star {
+    top: 207px;
+    right: 202px;
+}
+
+.star {
+    width: 97px;
+    height: 95px;
+    background: url(http://newe1344-gsp.s3.amazonaws.com/nintendo/images/star.png) 0 98px scroll no-repeat;
+    cursor: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/mario-hand.png), auto;
+    
+    position: absolute;
+    z-index: 9999999;
+    
+    -webkit-transition: background-position .6s ease-in-out; 
+    -moz-transition: background-position .6s ease-in-out; 
+    -o-transition: background-position .6s ease-in-out; 
+    transition: background-position .6s ease-in-out;
+}
+
+.box1 { top: 525px; left: 223px; }
+.box2 { top: 525px; left: 292px; }
+.box3 { top: 525px; left: 361px; }
+.box4 { top: 525px; left: 430px; }
+
+.box {
+    width: 68px;
+    height: 69px;
+    background: url(http://newe1344-gsp.s3.amazonaws.com/nintendo/images/50-box.jpg) 0 0 scroll no-repeat;
+    cursor: url(https://s3.amazonaws.com/newe1344-gsp/nintendo/images/mario-hand.png), auto;
+    
+    position: absolute;
+    z-index: 9999999;
 }

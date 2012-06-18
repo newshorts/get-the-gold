@@ -160,9 +160,7 @@ var mouseCoins = function() {
         imgSeq = new Image(),
         bmpAnim,
         fpsLabel,
-        ss,
-        c,
-        aud;
+        ss;
 
     this.init = function() {
         
@@ -176,7 +174,7 @@ var mouseCoins = function() {
         stage = new Stage(canvas);
 
         stage.onMouseMove = moveCanvas;
-        stage.onMouseDown = clickCanvas;
+        stage.onMouseDown = this.clickCanvas;
 
         var data = {
             'frames': {
@@ -235,10 +233,11 @@ var mouseCoins = function() {
 
     }
 
-    var clickCanvas = function(evt) {
+    this.clickCanvas = function(evt) {
+//        console.log(evt);
         var count = Math.random()*15+5|0
-        addSparkles(count, stage.mouseX, stage.mouseY, 2);
-        
+//        addSparkles(count, stage.mouseX, stage.mouseY, 2);
+        addSparkles(count, evt.target.mouseX, evt.target.mouseY, 2);
         c.addCoins(parseInt(count));
         
         
@@ -353,12 +352,135 @@ var toggle = function() {
     }
 }
 
+var scene = function() {
+//    var assets = {
+//        box: {
+//            width: 68,
+//            height: 69,
+//            url: 'http://newe1344-gsp.s3.amazonaws.com/nintendo/images/50-box.jpg'
+//        },
+//        star: {
+//            width: 97,
+//            height: 95,
+//            url: 'http://newe1344-gsp.s3.amazonaws.com/nintendo/images/star.png'
+//        },
+//        coinSmall: {
+//            width: 41,
+//            height: 49,
+//            url: 'http://newe1344-gsp.s3.amazonaws.com/nintendo/images/coin-small.png'
+//        },
+//        coinLarge: {
+//            width: 72,
+//            height: 87,
+//            url: 'http://newe1344-gsp.s3.amazonaws.com/nintendo/images/coin-large.png'
+//        }
+//    }
+    
+    this.setScene = function() {
+        var scene;
+        
+        scene =     '<div class="star hidden-star"></div>';
+        
+        scene +=    '<div class="box box1"></div>';
+        scene +=    '<div class="box box2"></div>';
+        scene +=    '<div class="box box3"></div>';
+        scene +=    '<div class="box box4"></div>';
+        
+        scene +=    '<div class="coin-small coin-small1"></div>';
+        scene +=    '<div class="coin-small coin-small2"></div>';
+        scene +=    '<div class="coin-small coin-small3"></div>';
+        scene +=    '<div class="coin-small coin-small4"></div>';
+        scene +=    '<div class="coin-small coin-small5"></div>';
+        scene +=    '<div class="coin-small coin-small6"></div>';
+        scene +=    '<div class="coin-small coin-small7"></div>';
+        scene +=    '<div class="coin-small coin-small8"></div>';
+        
+        scene +=    '<div class="coin-large coin-large1"></div>';
+        scene +=    '<div class="coin-large coin-large2"></div>';
+        scene +=    '<div class="coin-large coin-large3"></div>';
+        scene +=    '<div class="coin-large coin-large4"></div>';
+        
+        scene +=    '';
+        
+        $('#wrap').append(scene);
+        setInteract();
+    }
+    
+    var setInteract = function() {
+        starInteract();
+        boxInteract();
+        coinInteract();
+    }
+    
+    var coinInteract = function() {
+        $('.coin-small').on('mouseover', function(evt) {
+            c.addCoins(10);
+            aud.cloneNode(true).play();
+            $(this).hide();
+        });
+        
+        $('.coin-large').on('mouseover', function(evt) {
+            c.addCoins(50);
+            aud.cloneNode(true).play();
+            $(this).hide();
+        });
+    }
+    
+    var boxInteract = function() {
+        $('.box').on('click', function(evt) {
+            var oX = evt.offsetX || evt.originalEvent.layerX;
+            var oY = evt.offsetY || evt.originalEvent.layerY;
+            
+            var e = {
+                target: {
+                    mouseX: evt.pageX - oX,
+                    mouseY: evt.pageY - (2 * oY)
+                } 
+            };        
+            mc.clickCanvas(e);
+            
+            $(this).hide();
+        });
+    }
+    
+    var starInteract = function() {
+        $('.star').hover(function(evt) {
+            $(this).css({
+                'background-position': '0px 0px'
+            });
+        }, function(evt) {
+            $(this).css({
+                'background-position': '0px 98px'
+            });
+        });
+        
+        $('.star').on('click', function(evt) {
+            
+            var oX = evt.offsetX || evt.originalEvent.layerX;
+            var oY = evt.offsetY || evt.originalEvent.layerY;
+            
+            var e = {
+                target: {
+                    mouseX: evt.pageX - oX,
+                    mouseY: evt.pageY - (2 * oY)
+                } 
+            };        
+            mc.clickCanvas(e);
+            
+            $(this).hide();
+        });
+    }
+}
+
 //$(window).load(function() {
     var pre,
         app,
         css;
         
-    css = '<link rel="stylesheet" type="text/css" href="//s3.amazonaws.com/newe1344-gsp/nintendo/css/style.css" />';
+    // //s3.amazonaws.com/newe1344-gsp/nintendo/css/style.css
+    // //localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css
+        
+    css = '<link rel="stylesheet" type="text/css" href="//localhost.com/GSP/clients/nintendo/get-the-gold/extension/css/style.css" />';
 
     pre =   '<div id="gold" class="hidden">';
     pre +=      '<div id="gold-wrap">';
@@ -396,23 +518,34 @@ var toggle = function() {
     
     var gm = $('#gold-mouse');
 
-    var w = $(this).width(),
-        h = $(this).height();
+    var w = $(window).width(),
+        h = $(window).height();
 
     gm.attr('width', w);
     gm.attr('height', h);
-
-    var mc = new mouseCoins();
-    mc.init();
-
-    var hc = new headerCoin();
-    hc.init();
-
-    var t = new toggle();
-    t.init();
-
-    setTimeout(function() {
+    
+    var mc,
+        hc,
+        t,
+        s,
+        c,
+        aud;
+    
+    $('#gold-preloader').on('click', function(evt) {
         $('#gold').removeClass('hidden').addClass('show');
         $('#gold-preloader').hide();
-    }, 2000);
+
+        mc = new mouseCoins();
+        mc.init();
+
+        hc = new headerCoin();
+        hc.init();
+
+        t = new toggle();
+        t.init();
+        
+        s = new scene();
+        s.setScene();
+    });
+
 //});
