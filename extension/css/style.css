@@ -283,10 +283,10 @@ body {
     z-index: 9999999;
 }
 
-.hidden-star {
+/*.hidden-star {
     top: 207px;
     right: 202px;
-}
+}*/
 
 .star {
     width: 97px;
